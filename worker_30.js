@@ -14,6 +14,7 @@ function preload()
 function setup()
 {
 	createCanvas(windowWidth,windowHeight);
+	bg.resizing();
 	background(255);
 	frameRate(28.54167);
 	bgm.play();
@@ -57,12 +58,17 @@ function Slide(prefix)
 	{
 		var filename=prefix+(i+1)+".jpg";
 		this.sprite[i]=loadImage(filename);
-		var p=loadImage(filename);
-		var resol=this.sprite[i].width*1.0/this.sprite[i].height;
-		var canvasRes=width*1.0/height;
-		console.log(this.sprite[i].width, this.sprite[i].height, resol, canvasRes, p.width);
-		if(resol>canvasRes) this.sprite[i].resize(int(height*resol),height);
-		else this.sprite[i].resize(width,int(width/resol));
+	}
+	this.resizing=function()
+	{
+		for(var i=0;i<this.imageCount;i++)
+		{
+			var resol=this.sprite[i].width*1.0/this.sprite[i].height;
+			var canvasRes=width*1.0/height;
+			console.log(this.sprite[i].width, this.sprite[i].height, resol, canvasRes);
+			if(resol>canvasRes) this.sprite[i].resize(int(height*resol),height);
+			else this.sprite[i].resize(width,int(width/resol));
+		}
 	}
 	this.display=function()
 	{
