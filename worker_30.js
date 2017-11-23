@@ -59,7 +59,7 @@ function Slide(prefix)
 		this.sprite[i]=loadImage(filename);
 		var resol=this.sprite[i].width*1.0/this.sprite[i].height;
 		var canvasRes=width*1.0/height;
-		console.log(this.sprite[i].width);
+		console.log(this.sprite[i].width, this.sprite[i].height, resol, canvasRes);
 		if(resol>canvasRes) this.sprite[i].resize(int(height*resol),height);
 		else this.sprite[i].resize(width,int(width/resol));
 	}
