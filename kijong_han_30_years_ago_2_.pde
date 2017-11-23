@@ -13,9 +13,9 @@ void setup()
   fill(0);
   text("LOADING...",width/2,height/2);
   frameRate(28.54167);
-  worker=new Animation("../animation/worker_",50);
-  bg=new Slide("../photo/rodong_");
-  bgm=new SoundFile(this,"../../source/sagye.mp3");
+  worker=new Animation("animation/worker_",50);
+  bg=new Slide("photo/rodong_");
+  bgm=new SoundFile(this,"source/sagye.mp3");
   bgm.play();
   bgm.jump(1);
   loaded=millis();
