@@ -28,10 +28,6 @@ void draw()
 //  println(frameRate);
   if(millis()>123000+loaded) exit();
 }
-void mousePressed()
-{
-  println(millis());
-}
 
 class Animation
 {
@@ -60,8 +56,7 @@ class Slide
   PImage[] sprite;
   int imageCount;
   int[] cutFrames={0,4747,11721,18727,25734,34144,49738,56253,
-  63297,70653,79869,94023,100824,108214,111717,115256,121000
-};
+  63297,70653,79869,94023,100824,108214,111717,115256,121000};
   int frame;
   int bef, aft;
   Slide(String prefix)
@@ -72,10 +67,12 @@ class Slide
     {
       String filename=prefix+(i+1)+".jpg";
       sprite[i]=loadImage(filename);
+      println(sprite[i].width,sprite[i].height);
       float resol=sprite[i].width*1.0/sprite[i].height;
       float canvasRes=width*1.0/height;
       if(resol>canvasRes) sprite[i].resize(int(height*resol),height);
       else sprite[i].resize(width,int(width/resol));
+      println(sprite[i].width,sprite[i].height);
     }
     bef=0;
     aft=cutFrames[0];
